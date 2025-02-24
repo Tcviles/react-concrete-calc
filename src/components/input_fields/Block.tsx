@@ -2,30 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { TextField } from '@mui/material';
 
 interface BlockProps {
-  onVolumeChange: (area: number) => void;
+  onVolumeChange: (volume: number) => void;
 }
 
 const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
-  const [length, setLength] = useState(0);
-  const [width, setWidth] = useState(0);
-  const [depth, setDepth] = useState(0);
+  const [length, setLength] = useState<number>(0);
+  const [width, setWidth] = useState<number>(0);
+  const [depth, setDepth] = useState<number>(0);
 
   useEffect(() => {
-    const area = length * width * (depth / 12) / 27;
-    onVolumeChange(area);
+    const volume = (length * width * (depth / 12)) / 27;
+    onVolumeChange(volume);
   }, [length, width, depth, onVolumeChange]);
 
-  const handleNumberInputChange = (setter: React.Dispatch<React.SetStateAction<number>>) =>
+  const handleNumberInputChange = (setter: React.Dispatch<React.SetStateAction<number>>) => 
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
-      setter(value === '' ? 0 : Number(value));
+      console.log(event.target.value)
+      setter(+event.target.value);
     };
 
   return (
     <>
       <TextField 
         label="Length (ft)" 
-        type="number" 
+        type="integer" 
         value={length} 
         onChange={handleNumberInputChange(setLength)} 
         fullWidth 
@@ -33,7 +33,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
       />
       <TextField 
         label="Width (ft)" 
-        type="number" 
+        type="integer" 
         value={width} 
         onChange={handleNumberInputChange(setWidth)} 
         fullWidth 
@@ -41,7 +41,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
       />
       <TextField 
         label="Depth (in)" 
-        type="number" 
+        type="integer" 
         value={depth} 
         onChange={handleNumberInputChange(setDepth)} 
         fullWidth 
