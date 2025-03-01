@@ -50,20 +50,19 @@ const Steps: React.FC<StepsProps> = ({ onVolumeChange }) => {
   const unitOptions = ['ft', 'in', 'm', 'cm'];
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={1} padding={1}>
       {/* Length Field */}
       <Grid item xs={9}>
         <TextField 
           label="Length" 
-          type="number" 
+          type="integer" 
           value={length} 
           onChange={handleNumberInputChange(setLength)} 
-          fullWidth 
-          margin="normal" 
+          fullWidth  
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={lengthUnit} onChange={(e) => setLengthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -76,15 +75,14 @@ const Steps: React.FC<StepsProps> = ({ onVolumeChange }) => {
       <Grid item xs={9}>
         <TextField 
           label="Width" 
-          type="number" 
+          type="integer" 
           value={width} 
           onChange={handleNumberInputChange(setWidth)} 
-          fullWidth 
-          margin="normal" 
+          fullWidth  
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={widthUnit} onChange={(e) => setWidthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -97,15 +95,14 @@ const Steps: React.FC<StepsProps> = ({ onVolumeChange }) => {
       <Grid item xs={9}>
         <TextField 
           label="Rise" 
-          type="number" 
+          type="integer" 
           value={rise} 
           onChange={handleNumberInputChange(setRise)} 
-          fullWidth 
-          margin="normal" 
+          fullWidth  
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={riseUnit} onChange={(e) => setRiseUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -118,15 +115,14 @@ const Steps: React.FC<StepsProps> = ({ onVolumeChange }) => {
       <Grid item xs={9}>
         <TextField 
           label="Run" 
-          type="number" 
+          type="integer" 
           value={run} 
           onChange={handleNumberInputChange(setRun)} 
-          fullWidth 
-          margin="normal" 
+          fullWidth  
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={runUnit} onChange={(e) => setRunUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -139,11 +135,10 @@ const Steps: React.FC<StepsProps> = ({ onVolumeChange }) => {
       <Grid item xs={12}>
         <TextField 
           label="Number of Steps" 
-          type="number" 
+          type="integer" 
           value={numSteps} 
           onChange={handleNumberInputChange(setNumSteps)} 
-          fullWidth 
-          margin="normal" 
+          fullWidth  
         />
       </Grid>
     </Grid>

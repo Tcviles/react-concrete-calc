@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Container,
   Typography,
   TextField,
-  Button,
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
   Card,
   CardContent,
+  Grid,
 } from '@mui/material';
 import squareSlabImg from '../media/square_slab.png';
 import roundSlabImg from '../media/round_slab.png';
@@ -72,11 +71,11 @@ const ConcreteCalculator = () => {
   };
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" sx={{ display: "flex", flexDirection: "column", alignContent: "center", justifyContent: "center" }}>
       <Card>
         <CardContent>
           <Typography variant="h4" gutterBottom>Concrete Calculator</Typography>
-          <FormControl fullWidth margin="normal">
+          <FormControl fullWidth sx={{ paddingX: 1 }} >
             <Select
               id="calculate-for"
               value={calculatorFor}
@@ -97,23 +96,37 @@ const ConcreteCalculator = () => {
             <img
               src={getImageSrc()}
               alt={calculatorFor}
-              style={{ width: '70%', margin: '20px auto', display: 'block' }}
+              style={{ width: '70%', margin: '10px auto', display: 'block' }}
             />
           )}
 
           {getInputComponent()}
 
-          <TextField label="Quantity" type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} fullWidth margin="normal" />
-          <TextField label="Optional Cost (per cubic yard)" type="number" value={costPerUnit} onChange={(e) => setCostPerUnit(Number(e.target.value))} fullWidth margin="normal" />
+          <Grid container spacing={1} padding={1}>
+            <Grid item xs={12}>
+              <TextField label="Quantity" type="integer" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} fullWidth />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField label="Optional Cost (per cubic yard)" type="integer" value={costPerUnit} onChange={(e) => setCostPerUnit(Number(e.target.value))} fullWidth />
+            </Grid>
 
-          {result > 0 && <Typography variant="h6" marginTop={2}><strong>Concrete needed:</strong> {result.toFixed(2)} cubic yards</Typography>}
-          {cost > 0 && <Typography variant="h6"><strong>Total Cost:</strong> ${cost.toFixed(2)}</Typography>}
+            {result > 0 && (
+              <Grid item xs={12}>
+                <Typography variant="h6" marginTop={2}><strong>Concrete needed:</strong> {result.toFixed(2)} cubic yards</Typography>
+              </Grid>
+            )}
+            {cost > 0 && (
+              <Grid item xs={12}>
+                <Typography variant="h6"><strong>Total Cost:</strong> ${cost.toFixed(2)}</Typography>
+              </Grid>
+            )}
+          </Grid>
         </CardContent>
+      </Card>
       {/* Small "Made by tviles.com" footer */}
       <Typography variant="body2" align="right" sx={{ marginTop: 2, marginRight: 2, fontSize: '10px', color: 'gray' }}>
         Made by <a href="https://tviles.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'gray' }}>Tviles.com</a>
       </Typography>
-      </Card>
     </Container>
   );
 };

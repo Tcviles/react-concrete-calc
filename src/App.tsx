@@ -33,11 +33,9 @@ function App() {
       <CssBaseline />
       <Box 
         sx={{ 
-          width: '100vw', 
-          height: '100vh', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center' 
+          width: '100%', 
+          minHeight: '750px', // Fixed height
+          overflowY: 'scroll'
         }}
       >
         <ConcreteCalculator />

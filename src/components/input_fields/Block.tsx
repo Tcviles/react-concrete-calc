@@ -42,20 +42,19 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
   const unitOptions = ['ft', 'in', 'm', 'cm'];
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={1} padding={1}>
       {/* Length Field */}
       <Grid item xs={9}>
         <TextField 
           label="Length" 
-          type="number" 
+          type="integer" 
           value={length} 
           onChange={handleNumberInputChange(setLength)} 
-          fullWidth 
-          margin="normal" 
+          fullWidth
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={lengthUnit} onChange={(e) => setLengthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -68,15 +67,14 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
       <Grid item xs={9}>
         <TextField 
           label="Width" 
-          type="number" 
+          type="integer" 
           value={width} 
           onChange={handleNumberInputChange(setWidth)} 
           fullWidth 
-          margin="normal" 
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={widthUnit} onChange={(e) => setWidthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -89,15 +87,14 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
       <Grid item xs={9}>
         <TextField 
           label="Depth" 
-          type="number" 
+          type="integer" 
           value={depth} 
           onChange={handleNumberInputChange(setDepth)} 
           fullWidth 
-          margin="normal" 
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={depthUnit} onChange={(e) => setDepthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>

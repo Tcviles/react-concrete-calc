@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TextField, MenuItem, Select, FormControl, InputLabel, Grid } from '@mui/material';
+import { TextField, MenuItem, Select, FormControl, Grid } from '@mui/material';
 
 interface CylinderProps {
   onVolumeChange: (area: number) => void;
@@ -41,20 +41,19 @@ const Cylinder: React.FC<CylinderProps> = ({ onVolumeChange }) => {
   const unitOptions = ['ft', 'in', 'm', 'cm'];
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={1} padding={1}>
       {/* Diameter Field */}
       <Grid item xs={9}>
         <TextField 
           label="Diameter" 
-          type="number" 
+          type="integer"
           value={diameter} 
           onChange={handleNumberInputChange(setDiameter)} 
           fullWidth 
-          margin="normal" 
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={diameterUnit} onChange={(e) => setDiameterUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
@@ -67,15 +66,14 @@ const Cylinder: React.FC<CylinderProps> = ({ onVolumeChange }) => {
       <Grid item xs={9}>
         <TextField 
           label="Depth" 
-          type="number" 
+          type="integer"
           value={depth} 
           onChange={handleNumberInputChange(setDepth)} 
           fullWidth 
-          margin="normal" 
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth>
           <Select value={depthUnit} onChange={(e) => setDepthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
               <MenuItem key={unit} value={unit}>{unit}</MenuItem>
