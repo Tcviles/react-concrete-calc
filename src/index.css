@@ -20,5 +20,4 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Prevents unwanted scrolling */
 }
