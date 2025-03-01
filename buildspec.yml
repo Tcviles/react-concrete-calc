@@ -6,7 +6,7 @@ phases:
       - npm install
   pre_build:
     commands:
-      - export CLOUDFRONT_DISTRIBUTION_ID=$(aws ssm get-parameter --name /concrete-calc/CLOUDFRONT_DISTRIBUTION_ID --query Parameter.Value --output text)
+      - export CLOUDFRONT_DISTRIBUTION_ID=$(aws ssm get-parameter --name /concretecalc/CLOUDFRONT_DISTRIBUTION_ID --query Parameter.Value --output text)
       
   build:
     commands:
@@ -18,7 +18,7 @@ phases:
       - echo "Build artifacts are ready"
       - echo "Invalidating CloudFront cache"
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
-      
+
 artifacts:
   files:
     - '**/*'
