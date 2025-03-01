@@ -31,7 +31,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Box 
+        sx={{ 
+          width: '100vw', 
+          height: '100vh', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center' 
+        }}
+      >
         <ConcreteCalculator />
       </Box>
     </ThemeProvider>
