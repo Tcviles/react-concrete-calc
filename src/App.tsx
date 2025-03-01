@@ -1,5 +1,5 @@
 import React from 'react';
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import { createTheme, ThemeProvider, CssBaseline, Box } from '@mui/material';
 import ConcreteCalculator from './components/ConcreteCalculator';
 
 // Define the maroon and white theme
@@ -31,9 +31,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
+      <Box sx={{ width: '100vw', height: '100vh'}}>
         <ConcreteCalculator />
-      </div>
+      </Box>
     </ThemeProvider>
   );
 }
