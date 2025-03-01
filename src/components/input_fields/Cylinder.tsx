@@ -43,7 +43,7 @@ const Cylinder: React.FC<CylinderProps> = ({ onVolumeChange }) => {
   return (
     <Grid container spacing={1} padding={1}>
       {/* Diameter Field */}
-      <Grid item xs={9}>
+      <Grid item xs={8}>
         <TextField 
           label="Diameter" 
           type="integer"
@@ -52,7 +52,7 @@ const Cylinder: React.FC<CylinderProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <Select value={diameterUnit} onChange={(e) => setDiameterUnit(e.target.value)}>
             {unitOptions.map((unit) => (
@@ -63,7 +63,7 @@ const Cylinder: React.FC<CylinderProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Depth Field */}
-      <Grid item xs={9}>
+      <Grid item xs={8}>
         <TextField 
           label="Depth" 
           type="integer"
@@ -72,7 +72,7 @@ const Cylinder: React.FC<CylinderProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <Select value={depthUnit} onChange={(e) => setDepthUnit(e.target.value)}>
             {unitOptions.map((unit) => (

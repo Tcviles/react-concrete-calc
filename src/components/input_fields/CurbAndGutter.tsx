@@ -52,7 +52,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
   return (
     <Grid container spacing={2} padding={1}>
       {/* Curb Depth Field */}
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <TextField 
           label="Curb Depth" 
           type="integer"
@@ -61,7 +61,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
           fullWidth
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <InputLabel>Unit</InputLabel>
           <Select value={curbDepthUnit} onChange={(e) => setCurbDepthUnit(e.target.value)}>
@@ -73,7 +73,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Curb Height Field */}
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <TextField 
           label="Curb Height" 
           type="integer"
@@ -82,7 +82,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <InputLabel>Unit</InputLabel>
           <Select value={curbHeightUnit} onChange={(e) => setCurbHeightUnit(e.target.value)}>
@@ -94,7 +94,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Gutter Width Field */}
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <TextField 
           label="Gutter Width" 
           type="integer"
@@ -103,7 +103,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <InputLabel>Unit</InputLabel>
           <Select value={gutterWidthUnit} onChange={(e) => setGutterWidthUnit(e.target.value)}>
@@ -115,7 +115,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Flag Thickness Field */}
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <TextField 
           label="Flag Thickness" 
           type="integer"
@@ -124,7 +124,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <InputLabel>Unit</InputLabel>
           <Select value={flagThicknessUnit} onChange={(e) => setFlagThicknessUnit(e.target.value)}>
@@ -136,7 +136,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Length Field */}
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <TextField 
           label="Length" 
           type="integer"
@@ -145,7 +145,7 @@ const CurbAndGutter: React.FC<CurbAndGutterProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <InputLabel>Unit</InputLabel>
           <Select value={lengthUnit} onChange={(e) => setLengthUnit(e.target.value)}>

@@ -44,7 +44,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
   return (
     <Grid container spacing={1} padding={1}>
       {/* Length Field */}
-      <Grid item xs={9}>
+      <Grid item xs={8}>
         <TextField 
           label="Length" 
           type="integer" 
@@ -53,7 +53,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
           fullWidth
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <Select value={lengthUnit} onChange={(e) => setLengthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
@@ -64,7 +64,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Width Field */}
-      <Grid item xs={9}>
+      <Grid item xs={8}>
         <TextField 
           label="Width" 
           type="integer" 
@@ -73,7 +73,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <Select value={widthUnit} onChange={(e) => setWidthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
@@ -84,7 +84,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
       </Grid>
 
       {/* Depth Field */}
-      <Grid item xs={9}>
+      <Grid item xs={8}>
         <TextField 
           label="Depth" 
           type="integer" 
@@ -93,7 +93,7 @@ const Block: React.FC<BlockProps> = ({ onVolumeChange }) => {
           fullWidth 
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={4}>
         <FormControl fullWidth>
           <Select value={depthUnit} onChange={(e) => setDepthUnit(e.target.value)}>
             {unitOptions.map((unit) => (
