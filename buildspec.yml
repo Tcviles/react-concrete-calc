@@ -7,7 +7,7 @@ phases:
   pre_build:
     commands:
       - export CLOUDFRONT_DISTRIBUTION_ID=$(aws ssm get-parameter --name /concretecalc/CLOUDFRONT_DISTRIBUTION_ID --query Parameter.Value --output text)
-      
+      - echo "TEST $CLOUDFRONT_DISTRIBUTION_ID"
   build:
     commands:
       - npm run build
