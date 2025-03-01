@@ -31,7 +31,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ width: '100vw', height: '100vh'}}>
+      <Box sx={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
         <ConcreteCalculator />
       </Box>
     </ThemeProvider>

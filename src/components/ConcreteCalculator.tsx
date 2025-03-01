@@ -37,7 +37,7 @@ const ConcreteCalculator = () => {
     setResult(totalResult);
     setCost(totalResult * costPerUnit);
   };
-  
+
   const getInputComponent = () => {
     switch (calculatorFor) {
       case 'Square Slab':
@@ -55,7 +55,7 @@ const ConcreteCalculator = () => {
       default:
         return null;
     }
-  };    
+  };
 
   const getImageSrc = () => {
     switch (calculatorFor) {
@@ -77,8 +77,11 @@ const ConcreteCalculator = () => {
         <CardContent>
           <Typography variant="h4" gutterBottom>Concrete Calculator</Typography>
           <FormControl fullWidth margin="normal">
-            <InputLabel>Calculate for</InputLabel>
-            <Select value={calculatorFor} onChange={(e) => setCalculatorFor(e.target.value)}>
+            <Select
+              id="calculate-for"
+              value={calculatorFor}
+              onChange={(e) => setCalculatorFor(e.target.value)}
+            >
               <MenuItem value="Square Slab">Square Slab</MenuItem>
               <MenuItem value="Round Slab">Round Slab</MenuItem>
               <MenuItem value="Wall">Wall</MenuItem>
@@ -106,6 +109,10 @@ const ConcreteCalculator = () => {
           {result > 0 && <Typography variant="h6" marginTop={2}><strong>Concrete needed:</strong> {result.toFixed(2)} cubic yards</Typography>}
           {cost > 0 && <Typography variant="h6"><strong>Total Cost:</strong> ${cost.toFixed(2)}</Typography>}
         </CardContent>
+      {/* Small "Made by tviles.com" footer */}
+      <Typography variant="body2" align="right" sx={{ marginTop: 2, marginRight: 2, fontSize: '10px', color: 'gray' }}>
+        Made by <a href="https://tviles.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'gray' }}>Tviles.com</a>
+      </Typography>
       </Card>
     </Container>
   );
