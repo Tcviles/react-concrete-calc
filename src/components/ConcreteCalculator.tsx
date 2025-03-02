@@ -92,13 +92,13 @@ const ConcreteCalculator = () => {
             </Select>
           </FormControl>
 
-          {getImageSrc() && (
+          {/* {getImageSrc() && (
             <img
               src={getImageSrc()}
               alt={calculatorFor}
               style={{ width: '70%', margin: '10px auto', display: 'block' }}
             />
-          )}
+          )} */}
 
           {getInputComponent()}
 
@@ -106,20 +106,20 @@ const ConcreteCalculator = () => {
             <Grid item xs={12}>
               <TextField label="Quantity" type="integer" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} fullWidth />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField label="Optional Cost (per cubic yard)" type="integer" value={costPerUnit} onChange={(e) => setCostPerUnit(Number(e.target.value))} fullWidth />
-            </Grid>
+            </Grid> */}
 
             {result > 0 && (
               <Grid item xs={12}>
-                <Typography variant="h6" marginTop={2}><strong>Concrete needed:</strong> {result.toFixed(2)} cubic yards</Typography>
+                <Typography variant="h6" marginTop={2}><strong>Concrete needed:</strong> {result > 0 ? result.toFixed(2) : 0} cubic yards</Typography>
               </Grid>
             )}
-            {cost > 0 && (
+            {/* {cost > 0 && (
               <Grid item xs={12}>
                 <Typography variant="h6"><strong>Total Cost:</strong> ${cost.toFixed(2)}</Typography>
               </Grid>
-            )}
+            )} */}
           </Grid>
         </CardContent>
       </Card>
