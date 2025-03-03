@@ -10,8 +10,12 @@ phases:
   pre_build:
     commands:
       - echo "[PRE-BUILD] Fetching CloudFront Distribution ID from AWS SSM..."
-      - export CLOUDFRONT_DISTRIBUTION_ID=$(aws ssm get-parameter --name /concretecalc/CLOUDFRONT_DISTRIBUTION_ID --query Parameter.Value --output text)
-      - if [ -z "$CLOUDFRONT_DISTRIBUTION_ID" ]; then echo "ERROR: CloudFront Distribution ID not found!"; exit 1; fi
+      - |
+        CLOUDFRONT_DISTRIBUTION_ID=$(aws ssm get-parameter --name /concretecalc/CLOUDFRONT_DISTRIBUTION_ID --query Parameter.Value --output text)
+        if [ -z "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
+          echo "ERROR: CloudFront Distribution ID not found!"
+          exit 1
+        fi
       - echo "[PRE-BUILD] CloudFront Distribution ID retrieved securely."
 
   build:
