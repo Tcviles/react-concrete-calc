@@ -3,21 +3,30 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install
+      - echo "[INSTALL] Starting package installation..."
+      - npm ci
+      - echo "[INSTALL] Dependencies installed successfully."
+
   pre_build:
     commands:
+      - echo "[PRE-BUILD] Fetching CloudFront Distribution ID from AWS SSM..."
       - export CLOUDFRONT_DISTRIBUTION_ID=$(aws ssm get-parameter --name /concretecalc/CLOUDFRONT_DISTRIBUTION_ID --query Parameter.Value --output text)
-      - echo "TEST $CLOUDFRONT_DISTRIBUTION_ID"
+      - if [ -z "$CLOUDFRONT_DISTRIBUTION_ID" ]; then echo "ERROR: CloudFront Distribution ID not found!"; exit 1; fi
+      - echo "[PRE-BUILD] CloudFront Distribution ID retrieved securely."
+
   build:
     commands:
+      - echo "[BUILD] Starting the build process..."
       - npm run build
+      - echo "[BUILD] Build completed successfully."
 
   post_build:
     commands:
-      - echo "Post-build phase started"
-      - echo "Build artifacts are ready"
-      - echo "Invalidating CloudFront cache"
+      - echo "[POST-BUILD] Preparing deployment..."
+      - echo "[POST-BUILD] Uploading build artifacts..."
+      - echo "[POST-BUILD] Invalidating CloudFront cache..."
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+      - echo "[POST-BUILD] CloudFront cache invalidation triggered."
 
 artifacts:
   files:
